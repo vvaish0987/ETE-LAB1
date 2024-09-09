@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Courses</title>
+  <link rel="stylesheet" >
+</head>
+<body>
+  <div class="container">
+    <h1>Available Courses</h1>
+
+    <!-- Course List -->
+    <div id="courses-list" class="courses"></div>
+  </div>
+
+</body>
+</html>
+
+<style>
+    body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.courses {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.course-card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.course-card h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #0073e6;
+}
+
+.course-card p {
+  margin: 10px 0;
+  color: #555;
+}
+
+.course-card .price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.course-card .enrolled {
+  font-size: 14px;
+  color: #888;
+}
+</style>
+
+<script>
+    // Fetch course data from the JSON file hosted on GitHub and display it on the page
+
+document.addEventListener('DOMContentLoaded', () => {
+  // URL of the JSON file hosted on GitHub
+  const jsonUrl = 'https://raw.githubusercontent.com/vvaish0987/ETE-LAB1/main/courses.json';
+
+  // Fetch data from the provided URL
+  fetch(jsonUrl)
+    .then(response => {
+      // Check if the response is OK (status 200)
+      if (!response.ok) {
+        throw new Error('Network response was not OK');
+      }
+      // Parse the JSON data
+      return response.json();
+    })
+    .then(data => {
+      // Call function to display the courses on the page
+      displayCourses(data);
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
+});
+
+/**
+ * Function to display the courses on the page
+ * @param {Array} courses - List of courses fetched from the JSON file
+ */
+function displayCourses(courses) {
+  const coursesList = document.getElementById('courses-list');
+  coursesList.innerHTML = '';  // Clear previous content
+
+  // Loop through the courses array and create HTML for each course
+  courses.forEach(course => {
+    // Create a card element for each course
+    const courseCard = document.createElement('div');
+    courseCard.classList.add('course-card');
+
+    // Add course details to the card
+    courseCard.innerHTML = `
+      <h2>${course.title}</h2>
+      <p>Instructor: ${course.instructor}</p>
+      <p>Duration: ${course.duration}</p>
+      <p>Rating: ⭐${course.rating}</p>
+      <p>Category: ${course.category}</p>
+      <p class="price">Price: ${course.price}</p>
+      <p class="enrolled">Enrolled: ${course.enrolled} students</p>
+    `;
+
+    // Append the course card to the courses list
+    coursesList.appendChild(courseCard);
+  });
+}
+</script>
+
+ANNOTATIONS
+fetch(jsonUrl): Fetches the course data from the GitHub-hosted JSON file.
+.then(response => response.json()): Converts the response into JSON format if successful.
+displayCourses(data): Displays the course data by creating dynamic HTML content.
+courseCard.innerHTML: Dynamically generates a course card for each record in the JSON file.
