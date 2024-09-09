@@ -1,0 +1,63 @@
+[
+    {
+      "courseId": "C101",
+      "title": "Introduction to Web Development",
+      "instructor": "Mathew Jacob",
+      "duration": "10 hours",
+      "rating": 4.5,
+      "category": "Web Development",
+      "price": "$50",
+      "enrolled": 2500
+    },
+    {
+      "courseId": "C102",
+      "title": "Advanced Python Programming",
+      "instructor": "Hormis Paul",
+      "duration": "15 hours",
+      "rating": 4.8,
+      "category": "Programming",
+      "price": "$75",
+      "enrolled": 3200
+    },
+    {
+      "courseId": "C103",
+      "title": "Steps to Data Science",
+      "instructor": "Deepak Gigi",
+      "duration": "12 hours",
+      "rating": 4.6,
+      "category": "Data Science",
+      "price": "$60",
+      "enrolled": 2700
+    },
+    {
+      "courseId": "C104",
+      "title": "UX/UI Design Basics",
+      "instructor": "Arun Kurian",
+      "duration": "8 hours",
+      "rating": 4.4,
+      "category": "Design",
+      "price": "$40",
+      "enrolled": 1500
+    },
+    {
+      "courseId": "C105",
+      "title": "Cloud Computing with AWS",
+      "instructor": "Johaan Jacob",
+      "duration": "18 hours",
+      "rating": 4.9,
+      "category": "Cloud Computing",
+      "price": "$80",
+      "enrolled": 3500
+    },
+    {
+      "courseId": "C106",
+      "title": "Machine Learning with Spyder",
+      "instructor": "Varghese Chakola",
+      "duration": "20 hours",
+      "rating": 4.7,
+      "category": "Artificial Intelligence",
+      "price": "$90",
+      "enrolled": 4000
+    }
+  ]
+  
